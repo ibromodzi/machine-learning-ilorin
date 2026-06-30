@@ -504,6 +504,34 @@
       overflow-wrap: anywhere;
     }
 
+    .contact-methods {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .contact-method {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+      text-decoration: none;
+      font-weight: 800;
+      background: var(--paper);
+    }
+
+    .contact-method span:first-child {
+      color: var(--faint);
+      font-weight: 750;
+    }
+
+    .contact-method span:last-child {
+      overflow-wrap: anywhere;
+      text-align: right;
+    }
+
     footer {
       padding: 34px 0;
       color: var(--muted);
@@ -606,7 +634,7 @@
         <div class="hero-copy">
           <div class="eyebrow">Research-first AI/ML community in Ilorin</div>
           <h1>Open models. Local problems. Serious experiments.</h1>
-          <p class="lead">MLI brings together serious learners, researchers, students, and builders to study machine learning, evaluate open-source models, and build for Nigerian and African contexts.</p>
+          <p class="lead">MLI brings together serious learners, researchers, students, and builders in Ilorin to study machine learning, evaluate open-source models, and build for Nigerian contexts.</p>
           <div class="actions">
             <a class="button primary" href="#join">Join the founding group</a>
             <a class="button" href="#cycle">Explore Cycle 001</a>
@@ -622,8 +650,8 @@
             <div class="meta-value">Open-source models and evaluation</div>
           </div>
           <div class="meta-item">
-            <div class="meta-kicker">Context</div>
-            <div class="meta-value">Ilorin, Nigeria, Africa</div>
+            <div class="meta-kicker">Base and context</div>
+            <div class="meta-value">Based in Ilorin. Focused on Nigeria.</div>
           </div>
         </div>
       </div>
@@ -639,7 +667,7 @@
         <div>
           <h2>A community with a research spine.</h2>
           <p class="body-copy">AI is moving quickly, but competence does not come from hype. It comes from reading, building, testing, failing, documenting, and improving.</p>
-          <p class="body-copy">Machine Learning Ilorin exists to create a serious local environment for that work: paper reading, datasets, notebooks, model evaluation, fine-tuning, reports, and practical experiments grounded in local realities.</p>
+          <p class="body-copy">Machine Learning Ilorin exists to create a serious local environment for that work: paper reading, datasets, notebooks, model evaluation, fine-tuning, reports, and practical experiments grounded in Nigerian realities. Ilorin is the base; Nigeria is the primary context.</p>
         </div>
       </div>
     </section>
@@ -663,8 +691,8 @@
           </article>
           <article class="card">
             <span class="card-index">03</span>
-            <h3>Build for local context</h3>
-            <p class="muted">We care about Nigerian English, local languages, education, commerce, public information, and low-resource settings.</p>
+            <h3>Build for Nigerian context</h3>
+            <p class="muted">We care about Nigerian English, Nigerian languages, education, commerce, public information, and low-resource settings across Nigeria.</p>
           </article>
         </div>
       </div>
@@ -674,7 +702,7 @@
       <div class="shell">
         <div class="section-head">
           <h2>Cycle 001: Local LLM Evaluation</h2>
-          <p>The first research cycle starts with a practical question: how well do open-source language models understand Nigerian and Ilorin-relevant contexts?</p>
+          <p>The first research cycle starts with a practical question: how well do open-source language models understand Nigerian contexts?</p>
         </div>
         <div class="cycle-layout">
           <div class="cycle-panel">
@@ -685,7 +713,7 @@
           <div class="output-panel" aria-label="Expected outputs">
             <div class="output-row">
               <div class="output-label">01</div>
-              <div>50-prompt Nigerian and Ilorin-context evaluation bank.</div>
+              <div>50-prompt Nigerian-context evaluation bank.</div>
             </div>
             <div class="output-row">
               <div class="output-label">02</div>
@@ -745,7 +773,7 @@
           <li>People willing to attend research and experiment sessions.</li>
           <li>People interested in open-source models, datasets, and evaluation.</li>
           <li>People who can contribute through research, code, data, documentation, infrastructure, or coordination.</li>
-          <li>People curious about local-context AI for Nigerian languages, education, commerce, public services, health, agriculture, and everyday problems.</li>
+          <li>People curious about Nigeria-context AI for Nigerian languages, education, commerce, public services, health, agriculture, and everyday problems.</li>
         </ul>
       </div>
     </section>
@@ -759,7 +787,17 @@
         </div>
         <div class="contact-card">
           <h3>Send a short intro</h3>
-          <p>Include your name, current AI/ML level, main interest area, one thing you have built or studied recently, one local-context problem you want to explore, and one way you can contribute.</p>
+          <p>Include your name, current AI/ML level, main interest area, one thing you have built or studied recently, one Nigeria-context problem you want to explore, and one way you can contribute.</p>
+          <div class="contact-methods" aria-label="Contact methods">
+            <a class="contact-method" href="tel:+2348164402922">
+              <span>Phone</span>
+              <span>08164402922</span>
+            </a>
+            <a class="contact-method" href="mailto:ibromodzi@gmail.com">
+              <span>Email</span>
+              <span>ibromodzi@gmail.com</span>
+            </a>
+          </div>
           <span class="contact-line">Open models. Local problems. Serious experiments.</span>
         </div>
       </div>
@@ -769,7 +807,7 @@
   <footer>
     <div class="shell footer-inner">
       <span>Machine Learning Ilorin</span>
-      <span>Research. Experiment. Build for local context.</span>
+      <span>Research. Experiment. Build for Nigerian context.</span>
     </div>
   </footer>
 </body>
