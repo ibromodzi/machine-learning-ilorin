@@ -4,21 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Machine Learning Ilorin</title>
-  <meta name="description" content="Machine Learning Ilorin is a research-first AI/ML community focused on open-source models, serious experiments, and locally relevant machine learning.">
+  <meta name="description" content="Machine Learning Ilorin is a research-first AI/ML community in Ilorin focused on open-source models, serious experiments, and locally relevant machine learning.">
+  <meta property="og:title" content="Machine Learning Ilorin">
+  <meta property="og:description" content="Open models. Local problems. Serious experiments.">
+  <meta property="og:type" content="website">
   <style>
     :root {
-      --ink: #16201b;
-      --muted: #53615a;
-      --line: #d8ded9;
-      --paper: #f7f8f5;
+      --ink: #101714;
+      --muted: #53625a;
+      --faint: #6d7a73;
+      --line: #d8ded8;
+      --paper: #f5f7f2;
       --white: #ffffff;
-      --green: #28664a;
-      --gold: #b27a2f;
-      --soft: #eef3ef;
+      --wash: #eaf0ea;
+      --deep: #14231c;
+      --green: #245f45;
+      --green-2: #7ca982;
+      --gold: #b98231;
+      --clay: #9b5f3e;
+      --shadow: 0 20px 80px rgba(15, 23, 19, 0.14);
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -26,7 +38,8 @@
       color: var(--ink);
       background: var(--paper);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
     }
 
     a {
@@ -34,21 +47,21 @@
     }
 
     .shell {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1160px, calc(100% - 36px));
       margin: 0 auto;
     }
 
-    header {
-      border-bottom: 1px solid var(--line);
-      background: rgba(247, 248, 245, 0.94);
+    .topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(12px);
+      z-index: 20;
+      border-bottom: 1px solid rgba(216, 222, 216, 0.82);
+      background: rgba(245, 247, 242, 0.91);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
-      min-height: 64px;
+      min-height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -56,69 +69,107 @@
     }
 
     .brand {
-      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--deep);
+      font-size: 13px;
       letter-spacing: 0;
+    }
+
+    .brand span:last-child {
+      display: inline-block;
+      max-width: 260px;
+      line-height: 1.08;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 18px;
       color: var(--muted);
       font-size: 14px;
+      font-weight: 650;
     }
 
     .nav-links a {
       text-decoration: none;
     }
 
-    .hero {
-      min-height: calc(100vh - 64px);
-      display: grid;
-      align-items: stretch;
-      border-bottom: 1px solid var(--line);
+    .nav-links a:hover {
+      color: var(--ink);
     }
 
-    .hero-media {
-      min-height: calc(100vh - 64px);
-      position: relative;
-      display: grid;
+    .nav-cta {
+      min-height: 38px;
+      display: inline-flex;
       align-items: center;
+      border: 1px solid var(--deep);
+      border-radius: 8px;
+      padding: 0 13px;
+      color: var(--white);
+      background: var(--deep);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 68px);
+      display: grid;
       overflow: hidden;
       background: #111815;
     }
 
-    .hero-media img {
+    .hero img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0.9;
     }
 
-    .hero-media::after {
+    .hero::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(12, 18, 15, 0.88), rgba(12, 18, 15, 0.62) 42%, rgba(12, 18, 15, 0.18)),
-        linear-gradient(0deg, rgba(12, 18, 15, 0.76), rgba(12, 18, 15, 0.06) 45%);
+        linear-gradient(90deg, rgba(9, 15, 12, 0.92), rgba(9, 15, 12, 0.72) 42%, rgba(9, 15, 12, 0.2)),
+        linear-gradient(0deg, rgba(9, 15, 12, 0.82), rgba(9, 15, 12, 0.12) 56%);
     }
 
-    .hero-content {
+    .hero-inner {
       position: relative;
       z-index: 1;
+      display: grid;
+      align-items: end;
+      min-height: calc(100vh - 68px);
+      padding: 82px 0 42px;
       color: var(--white);
-      padding: 92px 0 120px;
-      max-width: 680px;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      padding-bottom: 64px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      color: #dce9dd;
+      color: #dfe9df;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0;
     }
@@ -131,17 +182,18 @@
     }
 
     h1 {
-      margin: 18px 0 18px;
-      font-size: clamp(42px, 7vw, 88px);
+      margin: 20px 0 18px;
+      max-width: 900px;
+      font-size: clamp(44px, 7vw, 92px);
       line-height: 0.96;
       letter-spacing: 0;
     }
 
     .lead {
       margin: 0;
-      max-width: 620px;
-      color: #eef4ee;
-      font-size: clamp(18px, 2vw, 22px);
+      max-width: 680px;
+      color: #edf5ee;
+      font-size: clamp(18px, 2vw, 23px);
     }
 
     .actions {
@@ -152,83 +204,149 @@
     }
 
     .button {
-      min-height: 46px;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.38);
-      padding: 0 18px;
-      text-decoration: none;
-      font-weight: 800;
+      gap: 9px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 8px;
+      padding: 0 17px;
+      color: inherit;
+      text-decoration: none;
+      font-weight: 850;
       background: rgba(255, 255, 255, 0.1);
     }
 
     .button.primary {
       border-color: var(--gold);
+      color: #11150f;
       background: var(--gold);
-      color: #101511;
     }
 
-    main section {
-      padding: 76px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-grid {
+    .hero-meta {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 64px;
-      align-items: start;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(12, 18, 15, 0.58);
+      box-shadow: var(--shadow);
+    }
+
+    .meta-item {
+      min-height: 102px;
+      padding: 18px;
+      border-right: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .meta-item:last-child {
+      border-right: 0;
+    }
+
+    .meta-kicker {
+      color: #b9cbbd;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .meta-value {
+      margin-top: 7px;
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    section {
+      border-bottom: 1px solid var(--line);
+      padding: 82px 0;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 36px;
     }
 
     h2 {
       margin: 0;
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.08;
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.05;
       letter-spacing: 0;
+    }
+
+    .section-head p,
+    .body-copy {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
     }
 
     h3 {
       margin: 0 0 10px;
-      font-size: 19px;
+      font-size: 20px;
+      line-height: 1.2;
       letter-spacing: 0;
     }
 
     p {
-      margin: 0 0 18px;
+      margin: 0 0 16px;
     }
 
     .muted {
       color: var(--muted);
     }
 
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 58px;
+      align-items: start;
+    }
+
+    .statement {
+      padding: 28px;
+      border-left: 4px solid var(--gold);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .statement p {
+      color: var(--ink);
+      font-size: clamp(22px, 2.7vw, 32px);
+      line-height: 1.18;
+      font-weight: 760;
+    }
+
     .list {
       display: grid;
-      gap: 12px;
+      gap: 14px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
     .list li {
-      padding-left: 22px;
       position: relative;
+      padding-left: 24px;
+      color: var(--muted);
     }
 
     .list li::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.78em;
-      width: 8px;
-      height: 8px;
+      top: 0.72em;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
       background: var(--green);
     }
 
-    .band {
-      background: var(--soft);
+    .wash {
+      background: var(--wash);
     }
 
     .cards {
@@ -238,47 +356,171 @@
     }
 
     .card {
-      background: var(--white);
+      min-height: 210px;
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      padding: 22px;
-      min-height: 176px;
+      background: var(--white);
     }
 
-    .cycle {
+    .card-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 26px;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--green);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .cycle-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: stretch;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
     }
 
-    .panel {
+    .cycle-panel,
+    .output-panel {
+      border-radius: 8px;
+      border: 1px solid var(--line);
       background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .cycle-panel {
+      padding: 32px;
+    }
+
+    .cycle-panel .tag {
+      display: inline-flex;
+      margin-bottom: 20px;
+      border-radius: 999px;
+      padding: 7px 11px;
+      color: var(--deep);
+      background: #e7d8bd;
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .cycle-panel h3 {
+      font-size: clamp(27px, 3vw, 40px);
+    }
+
+    .output-panel {
+      overflow: hidden;
+    }
+
+    .output-row {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 18px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .output-row:last-child {
+      border-bottom: 0;
+    }
+
+    .output-label {
+      color: var(--green);
+      font-weight: 850;
+    }
+
+    .rhythm {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .step {
+      min-height: 170px;
+      padding: 22px;
       border: 1px solid var(--line);
       border-radius: 8px;
-      padding: 28px;
+      background: var(--paper);
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--clay);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0;
     }
 
     .join {
-      background: #17211c;
+      color: var(--white);
+      background: var(--deep);
+    }
+
+    .join .section-head p,
+    .join .muted,
+    .join .list li {
+      color: #c8d6cc;
+    }
+
+    .join .list li::before {
+      background: var(--gold);
+    }
+
+    .join-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: start;
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .join-box h2 {
       color: var(--white);
     }
 
-    .join .muted {
-      color: #c8d4ca;
+    .contact-card {
+      padding: 24px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--white);
+    }
+
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    .contact-line {
+      display: block;
+      margin-top: 14px;
+      font-weight: 850;
+      overflow-wrap: anywhere;
     }
 
     footer {
-      padding: 30px 0;
+      padding: 34px 0;
       color: var(--muted);
       font-size: 14px;
     }
 
-    @media (max-width: 820px) {
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
       .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 0;
+        align-items: center;
+        padding: 14px 0;
       }
 
       .nav-links {
@@ -286,125 +528,249 @@
       }
 
       .hero,
-      .hero-media {
+      .hero-inner {
+        min-height: 760px;
+      }
+
+      .hero-copy {
+        padding-bottom: 42px;
+      }
+
+      .hero-meta,
+      .grid-2,
+      .cards,
+      .cycle-layout,
+      .rhythm,
+      .join-box {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-item {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      }
+
+      .meta-item:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .shell {
+        width: min(100% - 28px, 1160px);
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .hero,
+      .hero-inner {
         min-height: 720px;
       }
 
-      .hero-content {
-        padding: 70px 0 96px;
+      .button {
+        width: 100%;
       }
 
-      .section-grid,
-      .cycle,
-      .cards {
+      .output-row {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="topbar">
     <div class="shell nav">
-      <div class="brand">MLI</div>
+      <a class="brand" href="#top" aria-label="Machine Learning Ilorin home">
+        <span class="mark">MLI</span>
+        <span>Machine Learning Ilorin</span>
+      </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#work">What we do</a>
+        <a href="#why">Why</a>
+        <a href="#work">Work</a>
         <a href="#cycle">First cycle</a>
-        <a href="#join">Join</a>
+        <a href="#join" class="nav-cta">Join</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-media">
-      <img src="assets/mli-hero.png" alt="Research workspace with laptops, notebooks, and model evaluation materials">
-      <div class="shell hero-content">
-        <div class="eyebrow">Machine Learning Ilorin</div>
-        <h1>Open models. Local problems. Serious experiments.</h1>
-        <p class="lead">A research-first AI/ML community for serious learners, researchers, students, and builders in Ilorin.</p>
-        <div class="actions">
-          <a class="button primary" href="#join">Join the founding group</a>
-          <a class="button" href="#cycle">See the first cycle</a>
+  <section class="hero" id="top">
+    <img src="assets/mli-hero.png" alt="Research workspace with laptops, notebooks, and model evaluation materials">
+    <div class="shell hero-inner">
+      <div>
+        <div class="hero-copy">
+          <div class="eyebrow">Research-first AI/ML community in Ilorin</div>
+          <h1>Open models. Local problems. Serious experiments.</h1>
+          <p class="lead">MLI brings together serious learners, researchers, students, and builders to study machine learning, evaluate open-source models, and build for Nigerian and African contexts.</p>
+          <div class="actions">
+            <a class="button primary" href="#join">Join the founding group</a>
+            <a class="button" href="#cycle">Explore Cycle 001</a>
+          </div>
+        </div>
+        <div class="hero-meta" aria-label="MLI focus areas">
+          <div class="meta-item">
+            <div class="meta-kicker">Mode</div>
+            <div class="meta-value">Meet, research, experiment</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-kicker">Focus</div>
+            <div class="meta-value">Open-source models and evaluation</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-kicker">Context</div>
+            <div class="meta-value">Ilorin, Nigeria, Africa</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <main>
-    <section id="about">
-      <div class="shell section-grid">
-        <h2>For people ready to move from AI interest to machine learning work.</h2>
+    <section id="why">
+      <div class="shell grid-2">
+        <div class="statement">
+          <p>MLI is for people who want to move from being interested in AI to actually doing machine learning work.</p>
+        </div>
         <div>
-          <p>MLI exists to help people in and around Ilorin study machine learning deeply, reproduce research, run experiments, train and evaluate open-source models, and build systems for Nigerian and African contexts.</p>
-          <p class="muted">Beginners are welcome, but passive attendance is not the goal. Members are expected to learn actively, share progress, and contribute in practical ways.</p>
+          <h2>A community with a research spine.</h2>
+          <p class="body-copy">AI is moving quickly, but competence does not come from hype. It comes from reading, building, testing, failing, documenting, and improving.</p>
+          <p class="body-copy">Machine Learning Ilorin exists to create a serious local environment for that work: paper reading, datasets, notebooks, model evaluation, fine-tuning, reports, and practical experiments grounded in local realities.</p>
         </div>
       </div>
     </section>
 
-    <section id="work" class="band">
+    <section class="wash" id="work">
       <div class="shell">
-        <div class="section-grid">
-          <h2>What we do</h2>
-          <ul class="list">
-            <li>Read papers, model reports, and technical guides.</li>
-            <li>Run experiments and document results.</li>
-            <li>Train, fine-tune, and evaluate open-source models.</li>
-            <li>Build datasets, prompts, benchmarks, notebooks, and demos.</li>
-            <li>Explore AI/ML problems connected to Nigerian and African realities.</li>
-          </ul>
+        <div class="section-head">
+          <h2>What happens inside MLI</h2>
+          <p>Every cycle should leave something useful behind: notes, data, code, prompts, model outputs, evaluation results, or a short report.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="card-index">01</span>
+            <h3>Read and reproduce</h3>
+            <p class="muted">We study papers, model reports, technical guides, and reproducible workflows instead of chasing surface-level trends.</p>
+          </article>
+          <article class="card">
+            <span class="card-index">02</span>
+            <h3>Run experiments</h3>
+            <p class="muted">We design small, concrete experiments around prompts, datasets, baselines, open-source models, and evaluation rubrics.</p>
+          </article>
+          <article class="card">
+            <span class="card-index">03</span>
+            <h3>Build for local context</h3>
+            <p class="muted">We care about Nigerian English, local languages, education, commerce, public information, and low-resource settings.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cycle">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Cycle 001: Local LLM Evaluation</h2>
+          <p>The first research cycle starts with a practical question: how well do open-source language models understand Nigerian and Ilorin-relevant contexts?</p>
+        </div>
+        <div class="cycle-layout">
+          <div class="cycle-panel">
+            <span class="tag">First experiment</span>
+            <h3>Test models against local prompts, then document what fails.</h3>
+            <p class="muted">Members will run a 50-prompt local-context bank across selected open-source models, score responses for correctness, usefulness, cultural fit, clarity, hallucination risk, and safety, then write up the findings.</p>
+          </div>
+          <div class="output-panel" aria-label="Expected outputs">
+            <div class="output-row">
+              <div class="output-label">01</div>
+              <div>50-prompt Nigerian and Ilorin-context evaluation bank.</div>
+            </div>
+            <div class="output-row">
+              <div class="output-label">02</div>
+              <div>Raw model responses saved before scoring.</div>
+            </div>
+            <div class="output-row">
+              <div class="output-label">03</div>
+              <div>Evaluation sheet with rubric-based scoring.</div>
+            </div>
+            <div class="output-row">
+              <div class="output-label">04</div>
+              <div>Short report on strengths, failures, and next experiments.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wash">
+      <div class="shell">
+        <div class="section-head">
+          <h2>How the monthly rhythm works</h2>
+          <p>Small enough to start. Serious enough to compound.</p>
+        </div>
+        <div class="rhythm">
+          <div class="step">
+            <strong>Week 1</strong>
+            <h3>Research</h3>
+            <p class="muted">Pick the theme, read one useful reference, and define the experiment.</p>
+          </div>
+          <div class="step">
+            <strong>Week 2</strong>
+            <h3>Lab</h3>
+            <p class="muted">Set up prompts, datasets, notebooks, baselines, and shared tasks.</p>
+          </div>
+          <div class="step">
+            <strong>Week 3</strong>
+            <h3>Experiment</h3>
+            <p class="muted">Run model outputs, score results, debug failures, and compare notes.</p>
+          </div>
+          <div class="step">
+            <strong>Week 4</strong>
+            <h3>Report</h3>
+            <p class="muted">Demo findings, publish notes, and decide the next research question.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section>
-      <div class="shell cards">
-        <article class="card">
-          <h3>Research-first</h3>
-          <p class="muted">Papers, methods, model reports, reproducibility, and careful questions.</p>
-        </article>
-        <article class="card">
-          <h3>Experiment-driven</h3>
-          <p class="muted">Every cycle should leave behind notes, code, data, prompts, results, or a report.</p>
-        </article>
-        <article class="card">
-          <h3>Locally grounded</h3>
-          <p class="muted">Nigerian English, local languages, education, commerce, public information, and everyday context.</p>
-        </article>
+      <div class="shell grid-2">
+        <div>
+          <h2>Who should join?</h2>
+          <p class="body-copy">You do not need to be an expert. You do need to be active.</p>
+        </div>
+        <ul class="list">
+          <li>People willing to attend research and experiment sessions.</li>
+          <li>People interested in open-source models, datasets, and evaluation.</li>
+          <li>People who can contribute through research, code, data, documentation, infrastructure, or coordination.</li>
+          <li>People curious about local-context AI for Nigerian languages, education, commerce, public services, health, agriculture, and everyday problems.</li>
+        </ul>
       </div>
     </section>
 
-    <section id="cycle">
-      <div class="shell cycle">
+    <section class="join" id="join">
+      <div class="shell join-box">
         <div>
-          <h2>First research cycle: Local LLM Evaluation</h2>
-          <p class="muted">Research question: how well do open-source language models understand Nigerian and local Ilorin-relevant contexts?</p>
+          <div class="eyebrow">Founding group</div>
+          <h2>Help shape the first serious AI/ML experiment community in Ilorin.</h2>
+          <p class="muted">The first group will be intentionally small. The goal is not a crowd; it is a working culture.</p>
         </div>
-        <div class="panel">
-          <h3>Expected outputs</h3>
-          <ul class="list">
-            <li>50-prompt local-context bank.</li>
-            <li>Raw model responses.</li>
-            <li>Evaluation scores.</li>
-            <li>Failure analysis.</li>
-            <li>Short report.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="join" class="join">
-      <div class="shell section-grid">
-        <h2>Join the founding group</h2>
-        <div>
-          <p>MLI is for people willing to contribute through research, code, data collection, prompt design, model evaluation, documentation, infrastructure, or community coordination.</p>
-          <p class="muted">Send your name, AI/ML level, main interest area, one thing you have built or studied recently, one local-context problem you want to explore, and one way you can contribute.</p>
+        <div class="contact-card">
+          <h3>Send a short intro</h3>
+          <p>Include your name, current AI/ML level, main interest area, one thing you have built or studied recently, one local-context problem you want to explore, and one way you can contribute.</p>
+          <span class="contact-line">Open models. Local problems. Serious experiments.</span>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="shell">Machine Learning Ilorin. Research. Experiment. Build for local context.</div>
+    <div class="shell footer-inner">
+      <span>Machine Learning Ilorin</span>
+      <span>Research. Experiment. Build for local context.</span>
+    </div>
   </footer>
 </body>
 </html>
