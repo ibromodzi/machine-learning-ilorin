@@ -4,25 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Machine Learning Ilorin</title>
-  <meta name="description" content="Machine Learning Ilorin is a research-first AI/ML community in Ilorin focused on open-source models, serious experiments, and locally relevant machine learning.">
+  <meta name="description" content="Machine Learning Ilorin is a research-first AI/ML community based in Ilorin and focused on Nigerian contexts.">
   <meta property="og:title" content="Machine Learning Ilorin">
-  <meta property="og:description" content="Open models. Local problems. Serious experiments.">
+  <meta property="og:description" content="Open models. Nigerian problems. Serious experiments.">
   <meta property="og:type" content="website">
   <style>
     :root {
-      --ink: #101714;
-      --muted: #53625a;
-      --faint: #6d7a73;
-      --line: #d8ded8;
-      --paper: #f5f7f2;
-      --white: #ffffff;
-      --wash: #eaf0ea;
-      --deep: #14231c;
-      --green: #245f45;
-      --green-2: #7ca982;
-      --gold: #b98231;
-      --clay: #9b5f3e;
-      --shadow: 0 20px 80px rgba(15, 23, 19, 0.14);
+      --ink: #2d2a28;
+      --muted: #6f6a66;
+      --faint: #9d9893;
+      --line: #e4e0dc;
+      --paper: #fbfaf8;
+      --wash: #f2efeb;
+      --mark: #a5a0a0;
     }
 
     * {
@@ -37,7 +31,7 @@
       margin: 0;
       color: var(--ink);
       background: var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Georgia, "Times New Roman", serif;
       line-height: 1.55;
       text-rendering: optimizeLegibility;
     }
@@ -46,769 +40,425 @@
       color: inherit;
     }
 
+    .page {
+      min-height: 100vh;
+      border-top: 2px solid var(--ink);
+    }
+
     .shell {
-      width: min(1160px, calc(100% - 36px));
+      width: min(1090px, calc(100% - 40px));
       margin: 0 auto;
     }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(216, 222, 216, 0.82);
-      background: rgba(245, 247, 242, 0.91);
-      backdrop-filter: blur(14px);
-    }
-
     .nav {
-      min-height: 68px;
+      min-height: 74px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      justify-content: flex-end;
+      gap: 34px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 18px;
+      color: #34312f;
     }
 
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 850;
+    .nav a {
       text-decoration: none;
     }
 
-    .mark {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border-radius: 8px;
-      color: var(--white);
-      background: var(--deep);
-      font-size: 13px;
-      letter-spacing: 0;
-    }
-
-    .brand span:last-child {
-      display: inline-block;
-      max-width: 260px;
-      line-height: 1.08;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 650;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: var(--ink);
-    }
-
-    .nav-cta {
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--deep);
-      border-radius: 8px;
-      padding: 0 13px;
-      color: var(--white);
-      background: var(--deep);
+    .nav a:hover {
+      color: #000;
     }
 
     .hero {
-      position: relative;
-      min-height: calc(100vh - 68px);
-      display: grid;
-      overflow: hidden;
-      background: #111815;
+      padding: 54px 0 70px;
+      text-align: center;
     }
 
-    .hero img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.9;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(9, 15, 12, 0.92), rgba(9, 15, 12, 0.72) 42%, rgba(9, 15, 12, 0.2)),
-        linear-gradient(0deg, rgba(9, 15, 12, 0.82), rgba(9, 15, 12, 0.12) 56%);
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      align-items: end;
-      min-height: calc(100vh - 68px);
-      padding: 82px 0 42px;
-      color: var(--white);
-    }
-
-    .hero-copy {
-      max-width: 760px;
-      padding-bottom: 64px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: #dfe9df;
-      font-size: 13px;
-      font-weight: 800;
+    .wordmark {
+      width: min(760px, calc(100% - 40px));
+      margin: 0 auto;
+      color: var(--mark);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: clamp(48px, 6.3vw, 84px);
+      font-weight: 300;
+      line-height: 1.24;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      letter-spacing: 0;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 36px;
-      height: 2px;
-      background: var(--gold);
+    .wordmark span {
+      display: block;
     }
 
-    h1 {
-      margin: 20px 0 18px;
-      max-width: 900px;
-      font-size: clamp(44px, 7vw, 92px);
-      line-height: 0.96;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      margin: 0;
-      max-width: 680px;
-      color: #edf5ee;
-      font-size: clamp(18px, 2vw, 23px);
-    }
-
-    .actions {
+    .notice {
+      width: min(680px, 100%);
+      margin: 58px auto 0;
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 34px;
-    }
-
-    .button {
-      min-height: 48px;
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 8px;
-      padding: 0 17px;
-      color: inherit;
-      text-decoration: none;
-      font-weight: 850;
-      background: rgba(255, 255, 255, 0.1);
+      gap: 16px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #33302e;
+      font-size: 18px;
+      line-height: 1.35;
     }
 
-    .button.primary {
-      border-color: var(--gold);
-      color: #11150f;
-      background: var(--gold);
-    }
-
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      overflow: hidden;
-      background: rgba(12, 18, 15, 0.58);
-      box-shadow: var(--shadow);
-    }
-
-    .meta-item {
-      min-height: 102px;
-      padding: 18px;
-      border-right: 1px solid rgba(255, 255, 255, 0.16);
-    }
-
-    .meta-item:last-child {
-      border-right: 0;
-    }
-
-    .meta-kicker {
-      color: #b9cbbd;
-      font-size: 12px;
-      font-weight: 800;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      border-radius: 999px;
+      padding: 0 14px;
+      color: #3b3734;
+      background: #efeeec;
+      font-size: 14px;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(860px, calc(100% - 40px));
+      margin: 0 auto;
+      padding-bottom: 92px;
+    }
+
+    .essay {
+      margin-top: 22px;
+    }
+
+    .essay p {
+      margin: 0 0 34px;
+      font-size: clamp(24px, 2.7vw, 33px);
+      line-height: 1.45;
       letter-spacing: 0;
     }
 
-    .meta-value {
-      margin-top: 7px;
-      color: var(--white);
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.2;
+    .essay .smaller {
+      color: #3b3835;
+      font-size: clamp(22px, 2.35vw, 29px);
     }
 
     section {
-      border-bottom: 1px solid var(--line);
-      padding: 82px 0;
+      padding: 52px 0;
+      border-top: 1px solid var(--line);
     }
 
-    .section-head {
-      max-width: 780px;
-      margin-bottom: 36px;
+    .section-kicker {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
     }
 
     h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 52px);
-      line-height: 1.05;
+      margin: 0 0 26px;
+      font-size: clamp(29px, 3.8vw, 44px);
+      font-weight: 500;
+      line-height: 1.12;
       letter-spacing: 0;
     }
 
-    .section-head p,
-    .body-copy {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      line-height: 1.2;
-      letter-spacing: 0;
-    }
-
-    p {
-      margin: 0 0 16px;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .grid-2 {
+    .columns {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 58px;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
     }
 
-    .statement {
-      padding: 28px;
-      border-left: 4px solid var(--gold);
-      background: var(--white);
-      box-shadow: var(--shadow);
+    .body-copy,
+    .list,
+    .contact-copy {
+      color: #3b3835;
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.48;
     }
 
-    .statement p {
-      color: var(--ink);
-      font-size: clamp(22px, 2.7vw, 32px);
-      line-height: 1.18;
-      font-weight: 760;
+    .body-copy p {
+      margin: 0 0 22px;
     }
 
     .list {
       display: grid;
-      gap: 14px;
+      gap: 18px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
     .list li {
-      position: relative;
-      padding-left: 24px;
-      color: var(--muted);
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
     }
 
-    .list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.72em;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--green);
+    .list li:first-child {
+      padding-top: 0;
+      border-top: 0;
     }
 
-    .wash {
-      background: var(--wash);
+    .cycle {
+      padding: 34px 0 0;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      min-height: 210px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--white);
-    }
-
-    .card-index {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      margin-bottom: 26px;
-      border-radius: 50%;
-      color: var(--white);
-      background: var(--green);
-      font-size: 13px;
-      font-weight: 850;
-    }
-
-    .cycle-layout {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 22px;
-    }
-
-    .cycle-panel,
-    .output-panel {
-      border-radius: 8px;
-      border: 1px solid var(--line);
-      background: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .cycle-panel {
-      padding: 32px;
-    }
-
-    .cycle-panel .tag {
-      display: inline-flex;
-      margin-bottom: 20px;
-      border-radius: 999px;
-      padding: 7px 11px;
-      color: var(--deep);
-      background: #e7d8bd;
-      font-size: 12px;
-      font-weight: 850;
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    .cycle-panel h3 {
-      font-size: clamp(27px, 3vw, 40px);
-    }
-
-    .output-panel {
-      overflow: hidden;
-    }
-
-    .output-row {
-      display: grid;
-      grid-template-columns: 88px 1fr;
-      gap: 18px;
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .output-row:last-child {
-      border-bottom: 0;
-    }
-
-    .output-label {
-      color: var(--green);
-      font-weight: 850;
-    }
-
-    .rhythm {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .step {
-      min-height: 170px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--paper);
-    }
-
-    .step strong {
-      display: block;
-      margin-bottom: 20px;
-      color: var(--clay);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0;
-    }
-
-    .join {
-      color: var(--white);
-      background: var(--deep);
-    }
-
-    .join .section-head p,
-    .join .muted,
-    .join .list li {
-      color: #c8d6cc;
-    }
-
-    .join .list li::before {
-      background: var(--gold);
-    }
-
-    .join-box {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 42px;
-      align-items: start;
-      padding: 34px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .join-box h2 {
-      color: var(--white);
-    }
-
-    .contact-card {
-      padding: 24px;
-      border-radius: 8px;
+    .cycle-title {
+      margin: 0 0 12px;
       color: var(--ink);
-      background: var(--white);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 500;
+      line-height: 1.12;
     }
 
-    .contact-card p {
-      color: var(--muted);
+    .cycle-question {
+      margin: 0 0 34px;
+      color: #494541;
+      font-size: clamp(22px, 2.6vw, 31px);
+      line-height: 1.45;
     }
 
-    .contact-line {
-      display: block;
-      margin-top: 14px;
-      font-weight: 850;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-methods {
+    .outputs {
       display: grid;
-      gap: 10px;
-      margin-top: 18px;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--line);
     }
 
-    .contact-method {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 12px 14px;
-      text-decoration: none;
-      font-weight: 800;
-      background: var(--paper);
+    .output {
+      min-height: 120px;
+      padding: 22px 24px 22px 0;
+      border-bottom: 1px solid var(--line);
+      color: #3c3936;
+      font-size: 21px;
+      line-height: 1.4;
     }
 
-    .contact-method span:first-child {
+    .output:nth-child(odd) {
+      border-right: 1px solid var(--line);
+      margin-right: 24px;
+    }
+
+    .output strong {
+      display: block;
+      margin-bottom: 10px;
       color: var(--faint);
-      font-weight: 750;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
     }
 
-    .contact-method span:last-child {
+    .contact {
+      padding-bottom: 0;
+    }
+
+    .contact-details {
+      margin-top: 28px;
+      padding: 30px 0 0;
+      border-top: 1px solid var(--line);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 20px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 20px;
+    }
+
+    .contact-row span:first-child {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .contact-row a {
+      text-decoration: none;
       overflow-wrap: anywhere;
-      text-align: right;
     }
 
     footer {
-      padding: 34px 0;
+      width: min(1090px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
       color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 14px;
     }
 
     .footer-inner {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 760px) {
       .nav {
-        align-items: center;
-        padding: 14px 0;
+        min-height: 62px;
+        justify-content: space-between;
+        gap: 18px;
+        font-size: 15px;
       }
 
-      .nav-links {
-        flex-wrap: wrap;
-      }
-
-      .hero,
-      .hero-inner {
-        min-height: 760px;
-      }
-
-      .hero-copy {
-        padding-bottom: 42px;
-      }
-
-      .hero-meta,
-      .grid-2,
-      .cards,
-      .cycle-layout,
-      .rhythm,
-      .join-box {
-        grid-template-columns: 1fr;
-      }
-
-      .meta-item {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-      }
-
-      .meta-item:last-child {
-        border-bottom: 0;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .shell {
-        width: min(100% - 28px, 1160px);
-      }
-
-      .nav-links a:not(.nav-cta) {
+      .nav a:nth-child(2),
+      .nav a:nth-child(3) {
         display: none;
       }
 
-      section {
-        padding: 64px 0;
+      .hero {
+        padding: 46px 0 56px;
       }
 
-      .hero,
-      .hero-inner {
-        min-height: 720px;
+      .wordmark {
+        width: min(100% - 20px, 430px);
+        font-size: clamp(38px, 11vw, 58px);
+        letter-spacing: 0.07em;
       }
 
-      .button {
-        width: 100%;
+      .notice {
+        width: min(100% - 34px, 680px);
+        margin-top: 44px;
+        align-items: flex-start;
+        flex-direction: column;
+        font-size: 16px;
+        text-align: left;
       }
 
-      .output-row {
+      main {
+        width: min(100% - 34px, 860px);
+      }
+
+      .essay p,
+      .essay .smaller,
+      .body-copy,
+      .list,
+      .contact-copy {
+        font-size: 22px;
+      }
+
+      .columns,
+      .outputs {
         grid-template-columns: 1fr;
+      }
+
+      .output:nth-child(odd) {
+        border-right: 0;
+        margin-right: 0;
+      }
+
+      .contact-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        font-size: 18px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="shell nav">
-      <a class="brand" href="#top" aria-label="Machine Learning Ilorin home">
-        <span class="mark">MLI</span>
-        <span>Machine Learning Ilorin</span>
-      </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#why">Why</a>
-        <a href="#work">Work</a>
-        <a href="#cycle">First cycle</a>
-        <a href="#join" class="nav-cta">Join</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page">
+    <nav class="shell nav" aria-label="Primary navigation">
+      <a href="#tinker">Tinker</a>
+      <a href="#cycle">Cycle 001</a>
+      <a href="#notes">Notes</a>
+      <a href="#join">Join us</a>
+    </nav>
 
-  <section class="hero" id="top">
-    <img src="assets/mli-hero.png" alt="Research workspace with laptops, notebooks, and model evaluation materials">
-    <div class="shell hero-inner">
-      <div>
-        <div class="hero-copy">
-          <div class="eyebrow">Research-first AI/ML community in Ilorin</div>
-          <h1>Open models. Local problems. Serious experiments.</h1>
-          <p class="lead">MLI brings together serious learners, researchers, students, and builders in Ilorin to study machine learning, evaluate open-source models, and build for Nigerian contexts.</p>
-          <div class="actions">
-            <a class="button primary" href="#join">Join the founding group</a>
-            <a class="button" href="#cycle">Explore Cycle 001</a>
-          </div>
-        </div>
-        <div class="hero-meta" aria-label="MLI focus areas">
-          <div class="meta-item">
-            <div class="meta-kicker">Mode</div>
-            <div class="meta-value">Meet, research, experiment</div>
-          </div>
-          <div class="meta-item">
-            <div class="meta-kicker">Focus</div>
-            <div class="meta-value">Open-source models and evaluation</div>
-          </div>
-          <div class="meta-item">
-            <div class="meta-kicker">Base and context</div>
-            <div class="meta-value">Based in Ilorin. Focused on Nigeria.</div>
-          </div>
-        </div>
+    <header class="hero">
+      <h1 class="wordmark">
+        <span>Machine</span>
+        <span>Learning</span>
+        <span>Ilorin</span>
+      </h1>
+      <div class="notice" aria-label="Founding notice">
+        <span class="badge">New</span>
+        <span>A research-first AI/ML community based in Ilorin, focused on Nigerian contexts.</span>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <main>
-    <section id="why">
-      <div class="shell grid-2">
-        <div class="statement">
-          <p>MLI is for people who want to move from being interested in AI to actually doing machine learning work.</p>
-        </div>
-        <div>
-          <h2>A community with a research spine.</h2>
-          <p class="body-copy">AI is moving quickly, but competence does not come from hype. It comes from reading, building, testing, failing, documenting, and improving.</p>
-          <p class="body-copy">Machine Learning Ilorin exists to create a serious local environment for that work: paper reading, datasets, notebooks, model evaluation, fine-tuning, reports, and practical experiments grounded in Nigerian realities. Ilorin is the base; Nigeria is the primary context.</p>
-        </div>
+    <main>
+      <div class="essay" id="tinker">
+        <p>Machine Learning Ilorin is a community for people who want to do the work: meet, research, experiment, train, evaluate, and document.</p>
+        <p class="smaller">Ilorin is our base. Nigeria is our primary context. We are interested in open-source models, local datasets, model evaluation, and practical AI/ML experiments that make sense for the realities around us.</p>
       </div>
-    </section>
 
-    <section class="wash" id="work">
-      <div class="shell">
-        <div class="section-head">
-          <h2>What happens inside MLI</h2>
-          <p>Every cycle should leave something useful behind: notes, data, code, prompts, model outputs, evaluation results, or a short report.</p>
+      <section id="notes">
+        <div class="section-kicker">What this is</div>
+        <div class="columns">
+          <h2>A small group with a serious research habit.</h2>
+          <div class="body-copy">
+            <p>MLI is not an AI hype group, a passive event series, or a certificate circle.</p>
+            <p>It is a place to read carefully, reproduce ideas, run experiments, compare results, and leave behind useful notes, prompts, datasets, notebooks, reports, or demos.</p>
+          </div>
         </div>
-        <div class="cards">
-          <article class="card">
-            <span class="card-index">01</span>
-            <h3>Read and reproduce</h3>
-            <p class="muted">We study papers, model reports, technical guides, and reproducible workflows instead of chasing surface-level trends.</p>
-          </article>
-          <article class="card">
-            <span class="card-index">02</span>
-            <h3>Run experiments</h3>
-            <p class="muted">We design small, concrete experiments around prompts, datasets, baselines, open-source models, and evaluation rubrics.</p>
-          </article>
-          <article class="card">
-            <span class="card-index">03</span>
-            <h3>Build for Nigerian context</h3>
-            <p class="muted">We care about Nigerian English, Nigerian languages, education, commerce, public information, and low-resource settings across Nigeria.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="cycle">
-      <div class="shell">
-        <div class="section-head">
-          <h2>Cycle 001: Local LLM Evaluation</h2>
-          <p>The first research cycle starts with a practical question: how well do open-source language models understand Nigerian contexts?</p>
-        </div>
-        <div class="cycle-layout">
-          <div class="cycle-panel">
-            <span class="tag">First experiment</span>
-            <h3>Test models against local prompts, then document what fails.</h3>
-            <p class="muted">Members will run a 50-prompt local-context bank across selected open-source models, score responses for correctness, usefulness, cultural fit, clarity, hallucination risk, and safety, then write up the findings.</p>
-          </div>
-          <div class="output-panel" aria-label="Expected outputs">
-            <div class="output-row">
-              <div class="output-label">01</div>
-              <div>50-prompt Nigerian-context evaluation bank.</div>
-            </div>
-            <div class="output-row">
-              <div class="output-label">02</div>
-              <div>Raw model responses saved before scoring.</div>
-            </div>
-            <div class="output-row">
-              <div class="output-label">03</div>
-              <div>Evaluation sheet with rubric-based scoring.</div>
-            </div>
-            <div class="output-row">
-              <div class="output-label">04</div>
-              <div>Short report on strengths, failures, and next experiments.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="wash">
-      <div class="shell">
-        <div class="section-head">
-          <h2>How the monthly rhythm works</h2>
-          <p>Small enough to start. Serious enough to compound.</p>
-        </div>
-        <div class="rhythm">
-          <div class="step">
-            <strong>Week 1</strong>
-            <h3>Research</h3>
-            <p class="muted">Pick the theme, read one useful reference, and define the experiment.</p>
-          </div>
-          <div class="step">
-            <strong>Week 2</strong>
-            <h3>Lab</h3>
-            <p class="muted">Set up prompts, datasets, notebooks, baselines, and shared tasks.</p>
-          </div>
-          <div class="step">
-            <strong>Week 3</strong>
-            <h3>Experiment</h3>
-            <p class="muted">Run model outputs, score results, debug failures, and compare notes.</p>
-          </div>
-          <div class="step">
-            <strong>Week 4</strong>
-            <h3>Report</h3>
-            <p class="muted">Demo findings, publish notes, and decide the next research question.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="shell grid-2">
-        <div>
-          <h2>Who should join?</h2>
-          <p class="body-copy">You do not need to be an expert. You do need to be active.</p>
-        </div>
+      <section>
+        <div class="section-kicker">How we work</div>
         <ul class="list">
-          <li>People willing to attend research and experiment sessions.</li>
-          <li>People interested in open-source models, datasets, and evaluation.</li>
-          <li>People who can contribute through research, code, data, documentation, infrastructure, or coordination.</li>
-          <li>People curious about Nigeria-context AI for Nigerian languages, education, commerce, public services, health, agriculture, and everyday problems.</li>
+          <li>We study papers, model reports, and technical guides before turning them into small experiments.</li>
+          <li>We work with open-source models and evaluate where they succeed or fail in Nigerian contexts.</li>
+          <li>We care about Nigerian English, Nigerian languages, education, commerce, public information, health, agriculture, and everyday use cases.</li>
+          <li>We welcome beginners, but the culture rewards active contribution over passive interest.</li>
         </ul>
-      </div>
-    </section>
+      </section>
 
-    <section class="join" id="join">
-      <div class="shell join-box">
-        <div>
-          <div class="eyebrow">Founding group</div>
-          <h2>Help shape the first serious AI/ML experiment community in Ilorin.</h2>
-          <p class="muted">The first group will be intentionally small. The goal is not a crowd; it is a working culture.</p>
-        </div>
-        <div class="contact-card">
-          <h3>Send a short intro</h3>
-          <p>Include your name, current AI/ML level, main interest area, one thing you have built or studied recently, one Nigeria-context problem you want to explore, and one way you can contribute.</p>
-          <div class="contact-methods" aria-label="Contact methods">
-            <a class="contact-method" href="tel:+2348164402922">
-              <span>Phone</span>
-              <span>08164402922</span>
-            </a>
-            <a class="contact-method" href="mailto:ibromodzi@gmail.com">
-              <span>Email</span>
-              <span>ibromodzi@gmail.com</span>
-            </a>
+      <section id="cycle">
+        <div class="section-kicker">First cycle</div>
+        <div class="cycle">
+          <h2 class="cycle-title">Local LLM Evaluation</h2>
+          <p class="cycle-question">How well do open-source language models understand Nigerian contexts?</p>
+          <div class="outputs" aria-label="Cycle 001 outputs">
+            <div class="output">
+              <strong>Prompt bank</strong>
+              50 Nigerian-context prompts for evaluation.
+            </div>
+            <div class="output">
+              <strong>Model outputs</strong>
+              Raw responses saved before scoring.
+            </div>
+            <div class="output">
+              <strong>Rubric</strong>
+              Correctness, usefulness, cultural fit, clarity, hallucination risk, and safety.
+            </div>
+            <div class="output">
+              <strong>Report</strong>
+              A short write-up on strengths, failures, and next experiments.
+            </div>
           </div>
-          <span class="contact-line">Open models. Local problems. Serious experiments.</span>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer>
-    <div class="shell footer-inner">
-      <span>Machine Learning Ilorin</span>
-      <span>Research. Experiment. Build for Nigerian context.</span>
-    </div>
-  </footer>
+      <section class="contact" id="join">
+        <div class="section-kicker">Join us</div>
+        <div class="columns">
+          <h2>Send a short intro.</h2>
+          <div>
+            <p class="contact-copy">Include your name, AI/ML level, main interest area, something you have built or studied recently, one Nigeria-context problem you want to explore, and one way you can contribute.</p>
+            <div class="contact-details" aria-label="Contact information">
+              <div class="contact-row">
+                <span>Phone</span>
+                <a href="tel:+2348164402922">08164402922</a>
+              </div>
+              <div class="contact-row">
+                <span>Email</span>
+                <a href="mailto:ibromodzi@gmail.com">ibromodzi@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>Machine Learning Ilorin</span>
+        <span>Open models. Nigerian problems. Serious experiments.</span>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
